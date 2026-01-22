@@ -1,0 +1,82 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background:black;
+  position: sticky;
+  top: 0;
+}
+
+/* ===== Logo ===== */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color:deeppink;
+}
+
+/* ===== Navbar ===== */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+nav a:hover,
+.active {
+  color:deeppink;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 80vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80') center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: deeppink;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 600px;
+  color: #ccc;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: black;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 30px;
+}

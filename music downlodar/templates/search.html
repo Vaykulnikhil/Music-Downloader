@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EchoHub - Search</title>
+
+  <style>
+   /* 🔹 Reset & Body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0d0d0d;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: #111;
+}
+
+.logo {
+  color: #ff007f;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+nav a.active,
+nav a:hover {
+  color: #ff007f;
+}
+
+/* 🔹 Search Bar */
+.search-wrap {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.search-wrap input[type="search"] {
+  width: 320px;
+  max-width: 90%;
+  padding: 10px 14px;
+  border-radius: 24px;
+  border: 1px solid #222;
+  background: #151515;
+  color: #fff;
+}
+
+.search-wrap button {
+  padding: 10px 16px;
+  margin-left: 10px;
+  border-radius: 24px;
+  border: none;
+  background: #ff007f;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 🔹 Songs List (line-by-line view) */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px;
+}
+
+#songs-list {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.song-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #121212;
+  border: 1px solid #1f1f1f;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.song-row img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex: 0 0 72px;
+}
+
+/* 🔹 Song Meta */
+.meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.meta .title {
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta .artist {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.meta .duration {
+  color: #999;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* 🔹 Controls */
+/* 🔹 Controls */
+.controls {
+  display: flex;
+  align-items: center;          
+  justify-content: flex-end;    
+  gap: 10px;                    
+  flex: 0 0 240px;
+}
+
+.controls audio {
+  width: 70%;                  
+}
+.download-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #ff007f;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #d6006b;
+  color: #fff;
+}
+
+
+/* 🔹 Footer */
+footer {
+  text-align: center;
+  padding: 14px;
+  background: #111;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 640px) {
+  .song-row {
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .controls {
+    flex: 0 0 140px;
+  }
+
+  .song-row img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .meta .title {
+    font-size: 0.98rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎧 EchoHub</div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/search" class="active">Search</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="search-wrap">
+    <form method="post" style="display:inline-block;">
+      <input type="search" name="song-search" placeholder="Search your song..." />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <main>
+    <section id="songs-list">
+      {% for song in songs %}
+      <div class="song-row">
+        <img src="{{ song['image'][1]['url'] }}" alt="cover">
+        <div class="meta">
+          <div class="title">{{ song['name'] }}</div>
+          <div class="artist">By {{ song['artists']['primary'][0]['name'] }}</div>
+          <div class="duration">{{ song['duration'] }} sec</div>
+        </div>
+
+        <div class="controls">
+          <audio src="{{ song['downloadUrl'][-1]['url'] }}" controls></audio>
+          <a class="download-btn" href="{{ song['downloadUrl'][-1]['url'] }}" download>⬇️ Download</a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:14px;background:#111;color:#999;">
+    &copy; 2025 EchoHub. All rights reserved.
+  </footer>
+</body>
+</html>

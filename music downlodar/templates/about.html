@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎧EchoHub</title>
+  <link rel="stylesheet" href="static/css/style1.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1a2e, #0f3460);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00e0ff;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #ff6b35;
+  transition: 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* About Section */
+.about-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.about-container {
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(0, 224, 255, 0.4);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.about-container h2 {
+  font-size: 2.2rem;
+  color: #00e0ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00e0ff;
+}
+
+.about-container p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.about-container strong {
+  color: #00e0ff;
+}
+
+/* Footer */
+footer {
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  padding: 15px;
+  color: #aaa;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">🎧EchoHub</div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/search">Search</a></li>
+        <li><a href="/about" class="active">AboutUs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <h2>About 🎧 EchoHub</h2>
+
+<p>
+  Welcome to <strong>EchoHub</strong> — your digital home for music that moves you.
+  Whether you’re exploring trending hits or rediscovering golden classics,
+  we make music simple, beautiful, and accessible.
+</p>
+
+<p>
+  <strong>EchoHub</strong> is more than a streaming platform — it’s a creative space
+  built for true music lovers. Designed with simplicity and speed in mind,
+  our platform lets you find your favorite songs in seconds with high-quality playback.
+</p>
+
+<p>
+  Every beat, lyric, and rhythm connects us — and that’s the essence of EchoHub.
+  We aim to make music discovery effortless, inspiring, and enjoyable for everyone.
+</p>
+
+<p>
+  So plug in your earphones, turn up the volume, and let <strong>EchoHub</strong>
+  be the soundtrack to your day.
+</p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 EchoHub. All rights reserved.
+  </footer>
+</body>
+</html>
