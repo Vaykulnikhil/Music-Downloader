@@ -17,9 +17,8 @@ It allows users to search and download royalty-free music using open APIs, with 
 ## Technologies Used
 - Python
 - Flask
-- HTML, CSS, JavaScript
+- HTML, CSS
 - SQLite
-- Requests library
 
 ## How to Run
 1. Clone the repository
